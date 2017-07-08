@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html style="display: inline-block;text-align: center;" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script language="javascript" type="text/javascript">
+
+
+        function mgzBtnClick() {
+            location.assign('/admin/magazin');
+
+        }
+        function goodsBtnClick() {
+            location.assign('/admin/goods');
+        }
+        function myroomBtnClick() {
+            location.assign('/admin/myroom');
+        }
+        function wishroomBtnClick() {
+            location.assign('/admin/wishroom');
+        }
+        function pushBtnClick() {
+            location.assign('/admin/push');
+        }
+    </script>
+
+
+    <title>ForRoom</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+
+        /*#one{width: 200px;}*/
+        /*#two{width: 300px;}*/
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+
+</head>
+<body>
+<br><br>
+<h2><strong>관리자 메인페이지</strong></h2>
+<br><br><br>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center">
+            <input class="btn btn-primary btn-lg" type="button" value="매거진 등록 페이지" onclick="mgzBtnClick()">
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
+            <input class="btn btn-primary btn-lg" type="button" value="제품 관리 페이지" onclick="goodsBtnClick()">
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <input class="btn btn-primary btn-lg" type="button" value="마이룸 관리 페이지" onclick="myroomBtnClick()">
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <input class="btn btn-primary btn-lg" type="button" value="위시룸 관리 페이지" onclick="wishroomBtnClick()">
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <input class="btn btn-primary btn-lg" type="button" value="푸시 페이지" onclick="pushBtnClick()">
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <style type="text/css">
+        table {
+            width: 40em;
+        }
+
+        tr {
+            background-color: #DDD;
+        }
+    </style>
+</head>
+<body>
+<h1><%= title %></h1>
+<a href="/admin/list/<%= page %>">리스트 </a>
+<form action="/admin/update" method="post">
+
+    <table>
+
+        <tr>
+            <th>작성자</th>
+
+            <input type="hidden" name="no" value="<%= doc.no %>">
+            <input type="hidden" name="page" value="<%= page %>">
+            <td><input name="name" value=<%= doc.name %> size="10" maxlength="10"></td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td><input name="title" value=<%= doc.title %> size="50" maxlength="50"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><textarea name="content" rows="10" cols="50"><%= doc.content %></textarea></td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td><input type="password" name="pw" size="12" maxlength="12"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="쓰기">
+                <input type="reset" value="취소">
+
+            </td>
+
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

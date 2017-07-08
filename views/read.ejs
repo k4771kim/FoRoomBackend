@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <h1><%= title %></h1>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src = "//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        $(()=>{
+//           alert('ok');
+            $('#modify').click(()=>{
+                location.href= '/admin/update/<%=page%>/<%=doc.no%>'
+            });
+        $('#show_delform').click(()=>{
+            $('#span1').hide();
+        $('#frm1').show();
+        });
+        $('#cancel').click(()=>{
+            $('#span1').show();
+        $('#frm1').hide();
+        });
+        $('#del').click(()=>{
+           if($('#pw').val() == ''){
+            alert('비밀번호를 입력해주세영');
+            $('#pw').focus();
+            return;
+        }
+        document.frm1.submit();
+        });
+    });
+
+
+    </script>
+    <style>
+        table {
+            width: 40em;
+        }
+
+        tr {
+            background-color: #DDD;
+        }
+    </style>
+</head>
+<body>
+
+<a href="/admin/list/<%=page%>"> 리스트 </a>
+<table>
+    <tr>
+        <th width="100">제목</th>
+        <td><%= doc.title %></td>
+    </tr>
+    <tr>
+        <th>내용</th>
+        <td>
+            <pre><%= doc.content %></pre>
+        </td>
+    </tr>
+    <tr>
+        <th>날짜</th>
+        <td><%= doc.regdate2 %></td>
+    </tr>
+    <tr>
+        <th>조회수</th>
+        <td><%= doc.hit %></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <span id = "span1">
+            <input type="button" value="수정" id = "modify">
+            <input type="button" value="삭제" id = "show_delform">
+            </span>
+            <form action = "/admin/content/delete" method = "post" name = "frm1" id = "frm1" style = "display : inline; display : none">
+                <input type="hidden" name="no" value="<%= doc.no %> ">
+                <input type = "hidden" name = "page" value = "<%=page%>">
+                비밀번호 :
+                <input type = "password" name = "pw" id = "pw" size = "12" maxlength = "12">
+                <input type = "button" value = "Del" id = "del">
+                <input type = "button" value = "Cancel" id = "cancel">
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

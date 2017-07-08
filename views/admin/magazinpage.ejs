@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html style="display: inline-block;text-align: center;" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script language="javascript" type="text/javascript">
+
+
+        function insertBtnClick() {
+            location.assign('/admin/insertmagazin');
+
+        }
+        function modifyBtnClick() {
+
+            var mgz_id = document.getElementById('mgz_id').value;
+
+            location.assign('/admin/modifymagazin/'+mgz_id);
+
+        }
+    </script>
+
+
+    <title>ForRoom</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+
+        /*#one{width: 200px;}*/
+        /*#two{width: 300px;}*/
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+
+</head>
+<body>
+<br><br>
+<h2><strong>매거진 관리 페이지</strong></h2>
+<br><br><br>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center">
+            <input class="btn btn-primary btn-lg" type="button" value="매거진 등록하기" onclick="insertBtnClick()">
+        </div>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <div class="text-center">
+            <input class="btn btn-primary btn-lg" type="button" value="매거진 수정하기" onclick="modifyBtnClick()">
+            <select id="mgz_id" name="mgz_id">
+
+                <% for(var i = 0 ; i < mgz.length ; i++){ %>
+
+                <option value= <%= mgz[i].mgz_id %>><%= mgz[i].mgz_series + " - " + mgz[i].mgz_title %></option>
+
+                <% } %>
+            </select>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+
+
+</body>
+</html>

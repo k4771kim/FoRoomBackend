@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html style="display: inline-block;text-align: center;" lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script language="javascript" type="text/javascript">
+
+        function modifyGoodsBtnClick() {
+
+
+            var gd_id = document.getElementById('gd_id').value;
+            location.assign('/admin/modifygoods/' + gd_id);
+
+        }
+
+        function categoryBtnClick() {
+            location.assign('/admin/insertctg');
+
+        }
+        function insertGoodsBtnClick() {
+            location.assign('/admin/insertgoods');
+        }
+    </script>
+
+
+    <title>ForRoom</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+
+        /*#one{width: 200px;}*/
+        /*#two{width: 300px;}*/
+        img {
+            max-width: 100%;
+        }
+    </style>
+
+
+</head>
+<body>
+<br><br>
+<h2><strong>제품 관리 페이지</strong></h2>
+<br><br><br>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="text-center">
+            <input class="btn btn-primary btn-lg" type="button" value="제품 카테고리 등록" onclick="categoryBtnClick()">
+
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+
+            <input class="btn btn-primary btn-lg" type="button" value="제품 정보 등록" onclick="insertGoodsBtnClick()">
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    <div class="text-center">
+        <input class="btn btn-primary btn-lg" type="button" value="제품 수정하기" onclick="modifyGoodsBtnClick()">
+        <select id="gd_id" name="gd_id">
+            <% for (var i = 0 ; i < goods.length ; i++){ %>
+            <option value="<%= goods[i].gd_id %>"><%= goods[i].gd_series + " - "+ goods[i].gd_name %></option>
+            <% } %>
+        </select>
+    </div>
+</div>
+
+
+</div>
+
+
+</body>
+</html>

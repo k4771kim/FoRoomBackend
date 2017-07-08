@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <h1><%= title %></h1>
+
+    <style>
+        table {
+            width: 40em;
+        }
+
+        tr {
+            background-color: #DDD;
+        }
+    </style>
+
+
+    <A HREF="write"> 글쓰기</A><BR><BR>
+    <TABLE>
+        <TR>
+
+
+            <TH>글번호</TH>
+            <TH> 제목</TH>
+            <TH>글쓴이</TH>
+            <TH>날짜</TH>
+            <TH>조회수</TH>
+
+        </TR>
+        <%
+        for (var i = 0; i < docs.length; i++){
+        %>
+        <tr>
+
+            <td><%= docs[i].no %></td>
+            <td><a href="/admin/content/<%=datas.page%>/<%= docs[i].no %>"> <%= docs[i].title %></a></td>
+            <td><%= docs[i].name %></td>
+            <td><%= docs[i].regdate2 %></td>
+            <td><%= docs[i].hit %></td>
+
+        </tr>
+        <% } %>
+    </table>
+    <div style="width : 40em ; text-align:center;padding-top:2px;">
+
+        <% if (datas.page > datas.pageSize) { %>
+        [ <a style="text-decoration:none" href="/admin/list/1">◀◀</a>]
+        [<a style="text-decoration:none" href="/admin/list/<%= datas.startPage - 1 %>">◀</a>
+
+        <% } else { %>
+        [ <span style="color : gray">◀◀</span>]
+        [ <span style="color : gray">◀</span>]
+
+        <% } %>
+        &nbsp;&nbsp;
+        <% for (var i = datas.startPage ; i <= datas.endPage; i++){ %>
+        <% if(i == datas.page) { %>
+        [ <B><%= i %></B> ]
+        <% } else { %>
+        [ <a href=" /admin/list/<%= i %>"><%= i %></a> ]
+        <% } %>
+        <% } %>
+        &nbsp;&nbsp;
+        <% if(datas.endPage < datas.totalPage ){%>
+        [ <a style="text-decoration:none" href="/admin/list/<%=datas.endPage +1%>">▶</a>]
+        [<a style="text-decoration:none" href="/admin/list/<%= datas.totalPage %>">▶▶</a>]
+
+        <% }%>
+    </div>
+
+</head>
+</html>
